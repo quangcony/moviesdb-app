@@ -1,0 +1,90 @@
+@use '../../../../scss/' as *;
+
+.wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    height: var(--header-height);
+    background-color: transparent;
+    transition: height 0.3s ease, background-color 0.3s ease;
+
+    &.shrink {
+        height: var(--header-shrink-height);
+        background-color: var(--body-bg);
+    }
+
+    &.shrink .header .header-logo img {
+        width: 35px;
+    }
+}
+
+.header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    @include mobile {
+        justify-content: center;
+    }
+}
+
+.nav {
+    @include mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: var(--box-shadow);
+        background-color: var(--body-bg);
+    }
+}
+
+.nav-list {
+    display: flex;
+
+    & > * ~ * {
+        margin-left: 2.5rem;
+    }
+
+    li {
+        padding: 5px 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: 700;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--main-color);
+            transition: width 0.5s ease;
+        }
+
+        &.active::after,
+        &:hover::after {
+            background-color: var(--main-color);
+            width: 100%;
+        }
+    }
+
+    @include mobile {
+        justify-content: space-between;
+        padding: 1rem 2rem;
+
+        & > * ~ * {
+            margin-left: 0;
+        }
+    }
+}

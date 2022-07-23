@@ -1,0 +1,21 @@
+.casts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.item {
+    .avatar {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 160px;
+        margin-top: 1rem;
+    }
+
+    .name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+}

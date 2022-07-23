@@ -1,0 +1,43 @@
+@use '../../../../scss' as *;
+
+.footer {
+    position: relative;
+    padding: 6rem 0;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer-content {
+    max-width: 1000px;
+
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menus {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+
+        @include mobile {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .menu {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 1.3rem;
+            flex-direction: column;
+
+            font-size: 1.7rem;
+            font-weight: 600;
+
+            & > * ~ * {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
